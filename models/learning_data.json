@@ -1,0 +1,281 @@
+{
+  "patterns": {
+    "unknown_unknown": {
+      "count": 59,
+      "first_seen": 1750498759.820522,
+      "last_seen": 1750530606.4665759,
+      "data": {
+        "filename": "document1.pdf",
+        "differences": {
+          "text": [
+            {
+              "operation": "replace",
+              "reference_text": "r",
+              "new_text": "n",
+              "reference_position": [
+                0,
+                1
+              ],
+              "new_position": [
+                0,
+                1
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "ference",
+              "new_text": "w",
+              "reference_position": [
+                2,
+                9
+              ],
+              "new_position": [
+                2,
+                3
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "r",
+              "new_text": "n",
+              "reference_position": [
+                31,
+                32
+              ],
+              "new_position": [
+                25,
+                26
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "ference",
+              "new_text": "w",
+              "reference_position": [
+                33,
+                40
+              ],
+              "new_position": [
+                27,
+                28
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "im",
+              "new_text": "u",
+              "reference_position": [
+                62,
+                64
+              ],
+              "new_position": [
+                50,
+                51
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "or",
+              "new_text": "da",
+              "reference_position": [
+                65,
+                67
+              ],
+              "new_position": [
+                52,
+                54
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "ant",
+              "new_text": "ed",
+              "reference_position": [
+                68,
+                71
+              ],
+              "new_position": [
+                55,
+                57
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "0",
+              "new_text": "5",
+              "reference_position": [
+                123,
+                124
+              ],
+              "new_position": [
+                109,
+                110
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "decembe",
+              "new_text": "janua",
+              "reference_position": [
+                144,
+                151
+              ],
+              "new_position": [
+                130,
+                135
+              ]
+            },
+            {
+              "operation": "insert",
+              "reference_text": "",
+              "new_text": "y",
+              "reference_position": [
+                152,
+                152
+              ],
+              "new_position": [
+                136,
+                137
+              ]
+            },
+            {
+              "operation": "delete",
+              "reference_text": "3",
+              "new_text": "",
+              "reference_position": [
+                153,
+                154
+              ],
+              "new_position": [
+                138,
+                138
+              ]
+            },
+            {
+              "operation": "insert",
+              "reference_text": "",
+              "new_text": "5",
+              "reference_position": [
+                155,
+                155
+              ],
+              "new_position": [
+                139,
+                140
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "4",
+              "new_text": "5",
+              "reference_position": [
+                159,
+                160
+              ],
+              "new_position": [
+                144,
+                145
+              ]
+            },
+            {
+              "operation": "insert",
+              "reference_text": "",
+              "new_text": "bob ",
+              "reference_position": [
+                184,
+                184
+              ],
+              "new_position": [
+                169,
+                173
+              ]
+            },
+            {
+              "operation": "replace",
+              "reference_text": "bob",
+              "new_text": "alice",
+              "reference_position": [
+                188,
+                191
+              ],
+              "new_position": [
+                177,
+                182
+              ]
+            }
+          ],
+          "images": [],
+          "fonts": [],
+          "total_changes": 15
+        },
+        "timestamp": 1750498759.82052
+      }
+    }
+  },
+  "statistics": {
+    "total_changes": [
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      19,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "files_processed": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  }
+}

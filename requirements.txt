@@ -1,0 +1,45 @@
+# PDF Comparison Agent Requirements
+# Core dependencies
+streamlit>=1.28.0
+PyMuPDF>=1.23.0
+Pillow>=10.0.0
+pandas>=2.0.0
+numpy>=1.24.0
+requests>=2.31.0
+
+# Neuro AI Framework (Cognizant)
+# Note: This would be the actual Neuro AI package when available
+# For now, we'll create a mock implementation
+
+# LLM Integration
+ollama>=0.1.0
+llama-cpp-python>=0.2.0
+
+# Report Generation
+jinja2>=3.1.0
+weasyprint>=60.0
+openpyxl>=3.1.0
+
+# Utilities
+python-multipart>=0.0.6
+watchdog>=3.0.0
+tqdm>=4.65.0
+colorama>=0.4.6
+
+# Development
+pytest>=7.4.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Additional PDF processing
+pdfplumber>=0.9.0
+reportlab>=4.0.0
+
+# Image processing
+opencv-python>=4.8.0
+scikit-image>=0.21.0
+
+# Async support
+asyncio-mqtt>=0.13.0
+aiofiles>=23.0.0 

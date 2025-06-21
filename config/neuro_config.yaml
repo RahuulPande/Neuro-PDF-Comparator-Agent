@@ -1,0 +1,223 @@
+# Neuro AI Configuration for PDF Comparison Agent
+# This file configures the Cognizant Neuro AI framework integration
+
+agent:
+  name: "PDF_Comparison_Agent"
+  version: "1.0.0"
+  description: "Sophisticated PDF comparison agent using Neuro AI framework"
+  author: "Cognizant AI Lab"
+  
+  # Agent capabilities
+  capabilities:
+    - "pdf_parsing"
+    - "text_comparison"
+    - "image_comparison"
+    - "font_analysis"
+    - "report_generation"
+    - "llm_integration"
+    - "learning_module"
+    - "parallel_processing"
+
+workflow:
+  name: "PDF_Comparison_Workflow"
+  version: "1.0.0"
+  
+  # Workflow steps
+  steps:
+    - name: "scan_folders"
+      task: "scan_folders"
+      description: "Scan reference and new folders for PDF files"
+      timeout: 60
+      retry_attempts: 2
+      
+    - name: "validate_files"
+      task: "validate_files"
+      description: "Validate PDF files and check compatibility"
+      timeout: 30
+      retry_attempts: 1
+      
+    - name: "parse_pdfs"
+      task: "parse_pdfs"
+      description: "Parse PDF content and extract text, images, fonts"
+      timeout: 300
+      retry_attempts: 2
+      parallel: true
+      max_workers: 4
+      
+    - name: "compare_content"
+      task: "compare_content"
+      description: "Compare PDF content using configured sensitivity"
+      timeout: 600
+      retry_attempts: 3
+      parallel: true
+      max_workers: 4
+      
+    - name: "analyze_with_llm"
+      task: "analyze_with_llm"
+      description: "Generate intelligent summaries and assessments"
+      timeout: 120
+      retry_attempts: 2
+      
+    - name: "generate_report"
+      task: "generate_report"
+      description: "Create visual HTML report with differences"
+      timeout: 180
+      retry_attempts: 1
+      
+    - name: "update_learning"
+      task: "update_learning"
+      description: "Update learning module with comparison patterns"
+      timeout: 60
+      retry_attempts: 1
+
+tasks:
+  scan_folders:
+    type: "file_system"
+    input:
+      - "ref_folder_path"
+      - "new_folder_path"
+    output:
+      - "ref_files"
+      - "new_files"
+      - "file_mapping"
+      
+  validate_files:
+    type: "validation"
+    input:
+      - "ref_files"
+      - "new_files"
+    output:
+      - "validated_files"
+      - "validation_errors"
+      
+  parse_pdfs:
+    type: "pdf_processing"
+    input:
+      - "validated_files"
+    output:
+      - "parsed_content"
+      - "extracted_images"
+      - "font_information"
+      
+  compare_content:
+    type: "comparison"
+    input:
+      - "parsed_content"
+      - "sensitivity_config"
+    output:
+      - "differences"
+      - "similarity_scores"
+      - "change_summary"
+      
+  analyze_with_llm:
+    type: "llm_analysis"
+    input:
+      - "differences"
+      - "llm_config"
+    output:
+      - "intelligent_summary"
+      - "severity_assessment"
+      - "pattern_analysis"
+      
+  generate_report:
+    type: "report_generation"
+    input:
+      - "differences"
+      - "intelligent_summary"
+      - "report_config"
+    output:
+      - "html_report"
+      - "pdf_report"
+      - "excel_report"
+      
+  update_learning:
+    type: "learning"
+    input:
+      - "differences"
+      - "comparison_patterns"
+    output:
+      - "updated_learning_data"
+
+# Learning module configuration
+learning:
+  enabled: true
+  storage_path: "models/learning_data.json"
+  update_frequency: "after_each_comparison"
+  pattern_recognition:
+    enabled: true
+    min_pattern_frequency: 3
+    pattern_types:
+      - "text_changes"
+      - "font_changes"
+      - "layout_changes"
+      - "image_changes"
+  optimization:
+    enabled: true
+    cache_frequent_patterns: true
+    preload_common_elements: true
+
+# Performance configuration
+performance:
+  parallel_processing:
+    enabled: true
+    max_workers: 4
+    chunk_size: 10
+  memory_management:
+    cache_size_mb: 1000
+    cleanup_interval: 3600
+  optimization:
+    level: "balanced"
+    enable_profiling: false
+
+# Error handling
+error_handling:
+  retry_strategy: "exponential_backoff"
+  max_retry_attempts: 3
+  retry_delay_base: 1
+  retry_delay_max: 60
+  fail_fast: false
+  
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  handlers:
+    - type: "file"
+      path: "logs/neuro_agent.log"
+      max_size_mb: 10
+      backup_count: 5
+    - type: "console"
+      enabled: true
+      
+# Monitoring and metrics
+monitoring:
+  enabled: true
+  metrics:
+    - "task_execution_time"
+    - "memory_usage"
+    - "cpu_usage"
+    - "file_processing_rate"
+    - "comparison_accuracy"
+  alerts:
+    - type: "error_rate"
+      threshold: 0.1
+    - type: "memory_usage"
+      threshold: 0.8
+    - type: "execution_time"
+      threshold: 600
+
+# Integration settings
+integrations:
+  llm:
+    provider: "ollama"
+    model: "llama2"
+    endpoint: "http://localhost:11434"
+    timeout: 30
+  storage:
+    type: "local"
+    path: "data"
+    compression: true
+  ui:
+    framework: "streamlit"
+    port: 8501
+    host: "localhost" 
