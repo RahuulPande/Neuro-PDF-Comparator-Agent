@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Comparison Agent - AI-Powered Document Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .app-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .app-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd700;
+        }
+
+        .features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .features li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            color: #d0d0d0;
+            font-size: 0.9rem;
+        }
+
+        /* Developer Info */
+        .developer-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            height: fit-content;
+        }
+
+        .developer-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .developer-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .developer-title {
+            font-size: 1.1rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .developer-desc {
+            color: #d0d0d0;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .linkedin {
+            background: linear-gradient(45deg, #0077b5, #00a0dc);
+        }
+
+        .email {
+            background: linear-gradient(45deg, #ea4335, #fbbc05);
+        }
+
+        .github {
+            background: linear-gradient(45deg, #333, #666);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 60px 0;
+            border-radius: 20px;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: #d0d0d0;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 36px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #b0b0b0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .app-info h2 {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .fade-in-delay-1 {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .fade-in-delay-2 {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in">
+            <h1 class="logo">PDF Comparison Agent</h1>
+            <p class="tagline">AI-Powered Document Analysis & Regression Testing</p>
+            <p class="subtitle">Built with Cognizant Neuro AI Framework and Local LLM Integration</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- App Information -->
+            <div class="app-info fade-in-delay-1">
+                <h2>🚀 Project Overview</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 30px; color: #e0e0e0;">
+                    A sophisticated PDF comparison tool that leverages artificial intelligence to detect changes, 
+                    assess compliance risks, and generate intelligent reports for financial document validation.
+                </p>
+                
+                <h3 style="color: #ffd700; margin-bottom: 20px;">✨ Key Features</h3>
+                <ul class="features">
+                    <li>
+                        <div class="feature-icon">🤖</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Neuro AI Integration</div>
+                            <div class="feature-desc">Built on Cognizant's Neuro AI framework with intelligent workflow orchestration</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">🧠</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Local LLM Analysis</div>
+                            <div class="feature-desc">Ollama/LlamaCPP integration for intelligent summaries and pattern recognition</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Context-Aware Testing</div>
+                            <div class="feature-desc">Regression testing (expecting identical files) vs SIT testing (expecting changes)</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Advanced Comparison</div>
+                            <div class="feature-desc">Text, font, image, and layout analysis with page-level change detection</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">📋</div>
+                        <div class="feature-text">
+                            <div class="feature-title">Professional Reports</div>
+                            <div class="feature-desc">HTML and Excel reports with business context and compliance insights</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-text">
+                            <div class="feature-title">High Performance</div>
+                            <div class="feature-desc">Handles large PDF files (35-50+ pages) efficiently</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Developer Information -->
+            <div class="developer-info fade-in-delay-2">
+                <div class="developer-avatar">👨‍💻</div>
+                <h3 class="developer-name">Rahuul Pande</h3>
+                <p class="developer-title">Test Automation Engineer & AI Enthusiast</p>
+                <p class="developer-desc">
+                    Passionate about leveraging AI tools to solve complex testing challenges. 
+                    Specialized in automation frameworks and intelligent testing solutions.
+                </p>
+                
+                <div class="contact-buttons">
+                    <a href="https://www.linkedin.com/in/rahuulpande/" target="_blank" class="contact-btn linkedin">
+                        💼 LinkedIn
+                    </a>
+                    <a href="mailto:rahuulpande@gmail.com" class="contact-btn email">
+                        📧 Email
+                    </a>
+                    <a href="https://github.com/rahuulpande/" target="_blank" class="contact-btn github">
+                        🐙 GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section fade-in-delay-2">
+            <h2 class="cta-title">Ready to Experience AI-Powered PDF Analysis?</h2>
+            <p class="cta-text">
+                This project demonstrates advanced AI integration, intelligent workflow design, and practical 
+                application of machine learning in document validation workflows.
+            </p>
+            <a href="http://localhost:8502" class="cta-button">🚀 Launch Application</a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer fade-in-delay-2">
+            <p>&copy; 2024 PDF Comparison Agent. Built with ❤️ using Streamlit, Python, and AI technologies.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                Technologies: Python, Streamlit, PyMuPDF, Ollama, OpenCV, OpenPyXL, WeasyPrint
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to feature items
+            const featureItems = document.querySelectorAll('.features li');
+            featureItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(10px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+
+            // Add click effect to contact buttons
+            const contactBtns = document.querySelectorAll('.contact-btn');
+            contactBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,9 +1,9 @@
 {
   "patterns": {
     "unknown_unknown": {
-      "count": 59,
+      "count": 65,
       "first_seen": 1750498759.820522,
-      "last_seen": 1750530606.4665759,
+      "last_seen": 1751548235.823959,
       "data": {
         "filename": "document1.pdf",
         "differences": {
@@ -243,9 +243,15 @@
       0,
       0,
       0,
+      0,
+      0,
+      0,
       0
     ],
     "files_processed": [
+      2,
+      2,
+      2,
       2,
       2,
       2,
